@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shopping.mapper.ProductMapper">
+	<select id="productList" resultType="Product">
+		select * from product order by reg_date desc
+	</select>
+	
+	<select id="read" resultType="Product">
+		select * from product where product_id = #{productId}
+	</select>
+	
+	<update id="update" parameterType="Product">
+		update product set product_name=#{productName}, price=#{price}, stock=#{stock}, product_dist=#{productDist}, product_info=#{productInfo}, update_date=#{updateDate} where product_id=#{productId}
+	</update>
+	
+	<update id="updateFilename" parameterType="Product">
+		update product set filename = #{filename} where product_id = #{productId}
+	</update>
+	
+	<insert id="insert" parameterType="Product">
+		insert into product(product_id, product_name, price, stock, product_dist, product_info, filename, reg_date, update_date) values(#{productId}, #{productName}, #{price}, #{stock}, #{productDist}, #{productInfo}, #{filename}, #{regDate}, #{updateDate})
+	</insert>
+	
+	<delete id="delete">
+		delete from product where product_id = #{productId}
+	</delete>
+	
+	<select id="selectImg" resultType="String">
+		select filename from product where product_id=#{productId}
+	</select>
+	
+	<select id="selectDist" resultType="Product">
+		select * from product where product_dist = #{productDist}
+	</select>
+	
+	<select id="selectPic" resultType="Product">
+		select * from product where filename not in('default.jpg')
+	</select>
+	
+	<select id="countProduct" resultType="int">
+		select count(*) from product
+	</select>
+	
+	<select id="productPaging" resultType="Product">
+	
+	SELECT * 
+		FROM (
+			SELECT @ROWNUM:=@ROWNUM +1 as RN, A.* 
+				FROM (
+						SELECT * 
+						FROM product 
+						ORDER BY reg_date DESC 
+						) A
+				)b
+</select>
+</mapper>

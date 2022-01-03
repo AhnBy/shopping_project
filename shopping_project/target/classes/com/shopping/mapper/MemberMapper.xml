@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shopping.mapper.MemberMapper">
+	<insert id="insert" parameterType="Member">
+		insert into member(user_id, user_pw, name, zipcode, address1, address2, email, tel, birth_date, reg_date) values(#{userid}, #{userpw}, #{name}, #{zipcode}, #{address1}, #{address2}, #{email}, #{tel}, #{birthDate}, #{regDate})
+	</insert>
+	<select id="duplicatedId" parameterType="String" resultType="int">
+		select count(user_id) from member where user_id = #{userid}
+	</select>
+	
+	<select id="duplicatedEmail" parameterType="String" resultType="int">
+		select count(email) from member where email = #{email}
+	</select>
+	
+	<select id="readById" resultType="Member">
+		select * from member where user_id = #{userid}
+	</select>
+	
+	<update id="update" parameterType="Member">
+		update member set user_pw=#{userpw}, name=#{name}, zipcode=#{zipcode}, address1=#{address1}, address2=#{address2}, email=#{email}, tel=#{tel}, birth_date=#{birthDate} where user_id=#{userid}
+	</update>
+	
+	<delete id="delete" parameterType="Member">
+		delete from member where user_id = #{userid} and user_pw = #{userpw}
+	</delete>
+	
+	<select id="login" resultType="Member">
+		select user_id, user_pw from member where user_id = #{userid} and user_pw = #{userpw}
+	</select>
+	
+	<select id="findId" resultType="Member">
+		select * from member where name = #{name} and tel = #{tel}
+	</select>
+	
+	<select id="findPw" resultType="Member">
+		select * from member where user_id = #{userid} and name = #{name} and tel = #{tel}
+	</select>
+	
+	<select id="selectAll" resultType="Member">
+		select * from member where user_id not in('admin') order by reg_date desc
+	</select>
+	
+	<update id="updatePw" parameterType="Member">
+		update member set user_pw = #{userpw} where user_id = #{userid}
+	</update>
+</mapper>

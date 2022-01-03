@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.shopping.mapper.OrderMapper">
+  	<select id="myOrderList" resultType="Order">
+  		select * from setorder where user_id = #{userid}
+  	</select>
+  	
+  	<insert id="insert" parameterType="Order" >
+		insert into setorder(order_id, product_id, product_name, price, order_qty, product_dist, product_info, selected_opt, fullname, user_id, name, email, tel, address1, address2, zipcode, order_date, deliver_msg, deliver_situ, total_amount, billing_date, cal_info) values(#{orderId}, #{productId}, #{productName}, #{price}, #{orderQty}, #{productDist}, #{productInfo}, #{selectedOpt}, #{fullname}, #{userid}, #{name}, #{email}, #{tel}, #{address1}, #{address2}, #{zipcode}, #{orderDate}, #{deliverMsg}, #{deliverSitu}, #{totalAmount}, #{billingDate}, #{cal_info})
+	</insert>
+  	
+  	<delete id="delete">
+  		delete from setorder where order_id = #{orderId}
+  	</delete>
+  	
+  	<select id="selectById" resultType="Order">
+  		select * from setorder where order_id = #{orderId}
+  	</select>
+  	
+  	<update id="update" parameterType="Order">
+  		update setorder set order_qty = #{orderQty}, selected_opt = #{selectedOpt}, name = #{name}, zipcode = #{zipcode}, address1 = #{address1}, address2 = #{address2}, email = #{email}, tel = #{tel}, cal_info = #{cal_info} where order_id = #{orderId}
+  	</update>
+  </mapper>
