@@ -60,13 +60,8 @@ public class ProductService {
 		return productDao.selectPic();
 	}
 	
-	public int countProduct() {
-		return productDao.countProduct();
-	}
 	
-	public List<Product> productPaging(ProductPaging pp){
-		return productDao.productPaging(pp);
-	}
+	
 }
 
 

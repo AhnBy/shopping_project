@@ -93,7 +93,6 @@
 	</div>
 
 	<div class="container">
-		
 		<c:choose>   
 			<c:when test="${empty productList}">
 				<div class="row">
@@ -101,31 +100,49 @@
 					<p><img src="${pageContext.request.contextPath}/resources/img/default.jpg" class="img-thumbnail"  width="236" height="306"></p>
 				</div>
 			</c:when>
-		<c:otherwise>
-			<c:set var="list" value="${productList}"/>
-			<div class="row">
-				<c:forEach var="dto" begin="0" end="3" items="${productList}">
-					<div class="col-sm-3 image-box">
-						<a href="/product/buydetail?productId=${dto.productId}&userid=${result.userid}">
-						<p><img src="${pageContext.request.contextPath}/resources/img/${dto.filename}" class="image-thumbnail" width="236px" height="306px"></p></a>
-						<p>${dto.productName }<br><b>${dto.price} 원</b></p>
-					</div>
-				</c:forEach>
-			</div>
-			<br><br>
-			<div class="row">
-				<c:forEach var="dto" begin="4" end="7" items="${productList}">
-					<div class="col-sm-3 image-box">
-						<a href="/product/buydetail?productId=${dto.productId}&userid=${result.userid}">
-						<p><img src="${pageContext.request.contextPath}/resources/img/${dto.filename}" class="image-thumbnail" width="236px" height="306px"></p></a>
-						<p>${dto.productName }<br><b>${dto.price} 원</b></p>
-					</div>
-				</c:forEach>
-			</div>
-			
-		</c:otherwise>
-	</c:choose>
-</div>
-	
+			<c:otherwise>
+				<c:set var="list" value="${productList}"/>
+				<div class="row">
+					<c:forEach var="dto" begin="0" end="3" items="${productList}">
+						<div class="col-sm-3 image-box">
+							<a href="/product/buydetail?productId=${dto.productId}&userid=${result.userid}">
+							<p><img src="${pageContext.request.contextPath}/resources/img/${dto.filename}" class="image-thumbnail" width="236px" height="306px"></p></a>
+							<p>${dto.productName }<br><b>${dto.price} 원</b></p>
+						</div>
+					</c:forEach>
+				</div>
+				<br><br>
+				<div class="row">
+					<c:forEach var="dto" begin="4" end="7" items="${productList}">
+						<div class="col-sm-3 image-box">
+							<a href="/product/buydetail?productId=${dto.productId}&userid=${result.userid}">
+							<p><img src="${pageContext.request.contextPath}/resources/img/${dto.filename}" class="image-thumbnail" width="236px" height="306px"></p></a>
+							<p>${dto.productName }<br><b>${dto.price} 원</b></p>
+						</div>
+					</c:forEach>
+				</div>
+			</c:otherwise>
+		</c:choose>
+		<br><br>
+		<div style="display: block; text-align: center;">		
+			<c:if test="${paging.startPage != 1 }">
+				<a href="/product/list?userid=${result.userid}&productDist=${productDist}&nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+			</c:if>
+			<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+				<c:choose>
+					<c:when test="${p == paging.nowPage }">
+						<b><input type="button" value="${p }"></b>
+					</c:when>
+					<c:when test="${p != paging.nowPage }">
+						<a href="/product/list?userid=${result.userid}&productDist=${productDist}&nowPage=${p }&cntPerPage=${paging.cntPerPage}"> <input type="button" value="${p }"></a>
+					</c:when>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${paging.endPage != paging.lastPage}">
+				<a href="/product/list?userid=${result.userid}&productDist=${productDist}&nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+			</c:if>
+		</div>
+		<br><br><br><br><br><br>
+	</div>
 </body>
 </html>

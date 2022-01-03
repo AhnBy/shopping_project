@@ -195,19 +195,7 @@ public class ProductController {
 		return "/product/detail";
 	}
 	
-	@GetMapping("list")
-	public String listForm(String productDist, String userid, Model model) {
-		Member user = memberService.readById(userid);
-		model.addAttribute("result", user);
-		
-		Product product = new Product();
-		product.setProductDist(productDist);
-		
-		List<Product> list = productService.selectDist(product.getProductDist());
-		model.addAttribute("productList", list);
-		
-		return "/product/list";
-	}
+	
 	
 	@GetMapping("buydetail")
 	public String buydetailForm(Product product, String userid, Model model) {

@@ -45,29 +45,7 @@ public class AdminController {
 	
 	
 	
-	@GetMapping("productList")
-	public String listForm(ProductPaging pp, String nowPage, String cntPerPage, String productDist, String userid, Model model) {
-		Member user = memberService.readById(userid);
-		model.addAttribute("result", user);
-		
-		Product product = new Product();
-		product.setProductDist(productDist);
-		
-		int total = productService.countProduct();
-		if(nowPage == null && cntPerPage == null) {
-			nowPage = "1";
-			cntPerPage = "5";
-		}else if (nowPage == null) {
-			nowPage = "1";
-		} else if (cntPerPage == null) { 
-			cntPerPage = "5";
-		}
-		pp = new ProductPaging(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-		model.addAttribute("paging", pp);
-		model.addAttribute("productList", productService.productPaging(pp));
-		
-		return "/admin/productList";
-	}
+	
 	
 	@GetMapping("read")
 	public String productRead(String userid, String productId, Model model) {

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.shopping.mapper.ProductPagingMapper">
+  	<select id="countProduct" resultType="int">
+		select count(*) from product
+	</select>
+	
+	<select id="countProductDist" resultType="int">
+		select count(*) from product where product_dist = #{productDist}
+	</select>
+	
+	<select id="countArticle" resultType="int">
+		select count(*) from product
+		
+		<include refid="search"></include>
+	</select>
+	
+	<select id="productPaging" resultType="Product">
+	
+	select * from (
+			select @ROWNUM:=@ROWNUM +1 as RN, A.* FROM ( select * from product where product_dist = #{productDist} order by reg_date desc ) A, (select @ROWNUM :=0) C
+				)B where RN between #{start} and #{end}
+				
+	</select>
+	
+	<select id="adminProductPaging" resultType="Product">
+	
+	select * from (
+			select @ROWNUM:=@ROWNUM +1 as RN, A.* FROM ( select * from product order by reg_date desc ) A, (select @ROWNUM :=0) C
+				)B where RN between #{start} and #{end}
+				
+	</select>
+	
+	<select id="listAll" resultType="Product">
+	
+	select * from (
+			select @ROWNUM:=@ROWNUM +1 as RN, A.* FROM ( select * from product <include refid="search"></include> order by reg_date desc ) A, (select @ROWNUM :=0) C
+				)B where RN between #{start} and #{end}
+				
+	</select>
+	
+	<sql id="search">
+		<choose>
+			<when test="searchOption == 'all'">
+				where product_dist like concat('%',#{keyword},'%')
+				or product_name like concat('%',#{keyword},'%')
+				or product_id like concat('%',#{keyword},'%')
+			</when>
+			<otherwise>
+				where ${searchOption} like concat('%',#{keyword},'%')
+			</otherwise>
+		</choose>
+	</sql>
+	
+	
+    
+    
+</mapper>

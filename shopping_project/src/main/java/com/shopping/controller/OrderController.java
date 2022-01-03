@@ -72,6 +72,8 @@ public class OrderController {
 		
 		order.setFullname(filename);
 		
+		cartService.deleteCart(productId);
+		
 		orderService.insert(order);
 		model.addAttribute("orderDTO", order);
 

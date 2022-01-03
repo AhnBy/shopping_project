@@ -1,13 +1,16 @@
 package com.shopping.entity;
 
-import java.util.List;
-
 public class ProductPaging {
 	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
-	private int cntPage = 5;
+	private int cntPage = 8;
+	
+	private String keyword;
+	private String searchOption;
+	private String productDist;
 	
 	public ProductPaging() {
 	}
+	
 	public ProductPaging(int total, int nowPage, int cntPerPage) {
 		setNowPage(nowPage);
 		setCntPerPage(cntPerPage);
@@ -15,6 +18,27 @@ public class ProductPaging {
 		calcLastPage(getTotal(), getCntPerPage());
 		calcStartEndPage(getNowPage(), cntPage);
 		calcStartEnd(getNowPage(), getCntPerPage());
+	}
+	
+	public ProductPaging(int total, int nowPage, int cntPerPage, String productDist) {
+		setNowPage(nowPage);
+		setCntPerPage(cntPerPage);
+		setTotal(total);
+		calcLastPage(getTotal(), getCntPerPage());
+		calcStartEndPage(getNowPage(), cntPage);
+		calcStartEnd(getNowPage(), getCntPerPage());
+		setProductDist(productDist);
+	}
+	
+	public ProductPaging(int total, int nowPage, int cntPerPage, String keyword, String searchOption) {
+		setNowPage(nowPage);
+		setCntPerPage(cntPerPage);
+		setTotal(total);
+		calcLastPage(getTotal(), getCntPerPage());
+		calcStartEndPage(getNowPage(), cntPage);
+		calcStartEnd(getNowPage(), getCntPerPage());
+		setKeyword(keyword);
+		setSearchOption(searchOption);
 	}
 	// 제일 마지막 페이지 계산
 	public void calcLastPage(int total, int cntPerPage) {
@@ -97,8 +121,24 @@ public class ProductPaging {
 				+ ", cntPerPage=" + cntPerPage + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
 				+ ", cntPage=" + cntPage + "]";
 	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	public String getSearchOption() {
+		return searchOption;
+	}
+	public void setSearchOption(String searchOption) {
+		this.searchOption = searchOption;
+	}
+	public String getProductDist() {
+		return productDist;
+	}
+	public void setProductDist(String productDist) {
+		this.productDist = productDist;
+	}
 	
-	
-	
-	
+
 }

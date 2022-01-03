@@ -37,6 +37,7 @@
 				<value>classpath:com/shopping/mapper/ProductMapper.xml</value>
 				<value>classpath:com/shopping/mapper/CartMapper.xml</value>
 				<value>classpath:com/shopping/mapper/OrderMapper.xml</value>
+				<value>classpath:com/shopping/mapper/ProductPagingMapper.xml</value>
 			</list>
 		</property>
 	</bean>

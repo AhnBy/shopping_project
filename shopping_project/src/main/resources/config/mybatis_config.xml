@@ -13,6 +13,7 @@
   		<typeAlias type="com.shopping.entity.Product" alias="Product"/>
   		<typeAlias type="com.shopping.entity.Cart" alias="Cart"/>
   		<typeAlias type="com.shopping.entity.Order" alias="Order"/>
+  		<typeAlias type="com.shopping.entity.ProductPaging" alias="ProductPaging"/>
   	</typeAliases>
   	
   </configuration>

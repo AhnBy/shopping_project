@@ -72,15 +72,7 @@ public class ProductDaoMybatisMapper implements ProductDao {
 		return productMapper.selectPic();
 	}
 
-	@Override
-	public int countProduct() {
-		return productMapper.countProduct();
-	}
-
-	@Override
-	public List<Product> productPaging(ProductPaging pp) {
-		return productMapper.productPaging(pp);
-	}
+	
 
 		
 }

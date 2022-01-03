@@ -5,7 +5,7 @@
 
 <mapper namespace="com.shopping.mapper.CartMapper">
 	<insert id="addCart" parameterType="Cart">
-		insert into cart(cart_id, user_id, product_id, cart_qty, reg_date) values(#{cartId}, #{userid}, #{productId}, #{cartQty}, #{regDate})
+		insert into cart(cart_id, user_id, product_id, cart_qty, cart_opt, reg_date) values(#{cartId}, #{userid}, #{productId}, #{cartQty}, #{cartOpt}, #{regDate})
 	</insert>
 	
 	<select id="cartidQty" resultType="int">

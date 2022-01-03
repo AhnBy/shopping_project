@@ -20,9 +20,12 @@
 <script>
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
-		location.href="/admin/productList?nowPage=${paging.nowPage}&cntPerPage="+sel;
+		var userid = $("#userid").val();
+		location.href="/admin/productList?userid="+userid+"&nowPage=${paging.nowPage}&cntPerPage="+sel;
 	}
 </script>
+
+
 </head>
 <body>
 	<c:choose>
@@ -94,19 +97,20 @@
 	
 	<div class="container">
 		<h2>상품 목록</h2>
-		<form class="form-inline" action="/product/list" method="post">
+		<form class="form-inline" action="/admin/productList" method="post">
 			<div class="form-group">
-				<select class="form-control" name="col">
-					<option value="cateno" <c:if test= "${col=='productDist'}"> selected </c:if>>상품분류(OUTER:1,TOP:2,BOTTOM:3)</option>
-					<option value="pname" <c:if test= "${col=='productName'}"> selected </c:if>>상품명</option>
-					<option value="price" <c:if test= "${col=='price'}"> selected </c:if>>가격</option>
-					<option value="total" <c:if test= "${col=='total'}"> selected </c:if>>전체출력</option>       
+				<select class="form-control" name="searchOption" id="search">
+					<option value="product_dist" <c:if test="${searchOption eq 'product_dist' }">selected</c:if>>상품분류(OUTER:1,TOP:2,BOTTOM:3)</option>
+					<option value="product_name" <c:if test="${searchOption eq 'product_name' }">selected</c:if>>상품명</option>
+					<option value="product_id" <c:if test="${searchOption eq 'product_id' }">selected</c:if>>상품번호</option>
+					<option value="all" <c:if test="${searchOption eq 'all' }">selected</c:if> >전체출력</option>       
 				</select>
 			</div>
+			<input type="hidden" name="userid" id="userid" value="${result.userid}">
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Enter 검색어" name="word" value="${word}">
+				<input type="text" class="form-control" placeholder="Enter 검색어" name="keyword" value="${keyword}">
 			</div>
-		    <button type="submit" class="btn btn-default" >검색</button>
+		    <button type="submit" class="btn btn-default" id="searchGo" >검색</button>
 		    <button type="button" class="btn btn-default" onclick="location.href='/product/insert?userid=${result.userid}'">등록</button>
 		</form>
 		<table class="table table-striped">
@@ -124,7 +128,7 @@
 			<tbody>
 				<c:choose>   
 					<c:when test="${empty productList}">
-					<tr><td colspan="6">등록된 상품이 없습니다.</td>
+					<tr><td colspan="6">등록된 상품이 없습니다.</td></tr>
 					</c:when>
 					<c:otherwise>
 						<div style="float: right;">
@@ -158,23 +162,27 @@
 				</c:choose>
 			</tbody>
 		</table>
+		<br><br>
     	<div style="display: block; text-align: center;">		
-		<c:if test="${paging.startPage != 1 }">
-			<a href="/admin/productList?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
-		</c:if>
-		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
-			<c:choose>
-				<c:when test="${p == paging.nowPage }">
-					<b>${p }</b>
-				</c:when>
-				<c:when test="${p != paging.nowPage }">
-					<a href="/admin/productList?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
-				</c:when>
-			</c:choose>
-		</c:forEach>
-		<c:if test="${paging.endPage != paging.lastPage}">
-			<a href="/admin/productList?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
-		</c:if>
+			<c:if test="${paging.startPage != 1 }">
+				<a href="/admin/productList?userid=${result.userid}&nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+			</c:if>
+			<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+				<c:choose>
+					<c:when test="${p == paging.nowPage }">
+						<b><input type="button" value="${p }"></b>
+					</c:when>
+					<c:when test="${p != paging.nowPage }">
+						<a href="/admin/productList?userid=${result.userid}&nowPage=${p }&cntPerPage=${paging.cntPerPage}"> <input type="button" value="${p }"></a>
+					</c:when>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${paging.endPage != paging.lastPage}">
+				<a href="/admin/productList?userid=${result.userid}&nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+			</c:if>
+		</div>
+		<br><br><br><br><br><br>
 	</div>
-	</div>
+	
 </body> 
+</html>

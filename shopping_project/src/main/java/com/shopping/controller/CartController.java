@@ -41,6 +41,7 @@ public class CartController {
 		cart.setProductId(productId);
 		cart.setUserId(userid);
 		cart.setCartQty(order_Qty);
+		cart.setCartOpt(selected_Opt);
 		
 		model.addAttribute("selected_Opt", selected_Opt);
 		model.addAttribute("order_Qty", order_Qty);

@@ -40,20 +40,5 @@
 		select * from product where filename not in('default.jpg')
 	</select>
 	
-	<select id="countProduct" resultType="int">
-		select count(*) from product
-	</select>
 	
-	<select id="productPaging" resultType="Product">
-	
-	SELECT * 
-		FROM (
-			SELECT @ROWNUM:=@ROWNUM +1 as RN, A.* 
-				FROM (
-						SELECT * 
-						FROM product 
-						ORDER BY reg_date DESC 
-						) A
-				)b
-</select>
 </mapper>

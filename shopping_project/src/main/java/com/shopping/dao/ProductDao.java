@@ -28,7 +28,5 @@ public interface ProductDao {
 	
 	public List<Product> selectPic();
 	
-	public int countProduct();
 	
-	public List<Product> productPaging(ProductPaging pp);
 }	
