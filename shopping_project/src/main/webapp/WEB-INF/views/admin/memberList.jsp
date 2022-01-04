@@ -52,7 +52,6 @@
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">community <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="/member/myPage?userid=${result.userid}">Mypage</a></li>
-							
 						</ul>
 					</li>
 					<li><a id="grade" style="color: white;"><span class="glyphicon glyphicon-grain"></span>${str}</a></li>
