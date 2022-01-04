@@ -85,9 +85,6 @@
 		<h1 style="text-align: center; padding: 30px 0px;" >Hello World</h1>
 	</div>
 
-	<div class="nav">
-		<p>Nav영역</p>
-	</div>
 	<div class="container">
 		<h2 class="col-sm-offset-2 col-sm-10">비밀번호 찾기</h2>
 		
