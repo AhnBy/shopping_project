@@ -53,9 +53,7 @@
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">community <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="/member/myPage?userid=${result.userid}">Mypage</a></li>
-							<li><a href="#">Review</a></li>
-							<li><a href="/notice/list">Notice</a></li>
-							<li><a href="/chat">문의하기</a></li>
+							
 						</ul>
 					</li>
 					<li><a id="grade" style="color: white;"><span class="glyphicon glyphicon-grain"></span>${str}</a></li>
@@ -90,7 +88,7 @@
 		<div class="row">
 			<h1 class="col-sm-offset-1 col-sm-10">상품 상세페이지</h1>
 			<div class="col-sm-offset-1 col-sm-5">
-				<img class="fileImg" src="https://github.com/AhnBy/shopping_project/blob/master/${productInfo.filename}?raw=true/" width="370px" height="400px">
+				<img class="fileImg" src="https://github.com/AhnBy/shopping_project/blob/master/img/${productInfo.filename}?raw=true/" width="370px" height="400px">
 				
 			</div>
 			<div class="col-sm-offset-1 col-sm-4">

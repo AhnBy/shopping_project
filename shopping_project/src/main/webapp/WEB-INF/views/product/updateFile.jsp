@@ -52,9 +52,7 @@
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">community <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="/member/myPage?userid=${result.userid}">Mypage</a></li>
-							<li><a href="#">Review</a></li>
-							<li><a href="/notice/list">Notice</a></li>
-							<li><a href="/chat">문의하기</a></li>
+							
 						</ul>
 					</li>
 					<li><a id="grade" style="color: white;"><span class="glyphicon glyphicon-grain"></span>${str}</a></li>
@@ -97,7 +95,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="filenameMF1">원본파일</label>
 				<div class="col-sm-6">
-				    <img src="https://github.com/AhnBy/shopping_project/blob/master/${productInfo.filename}?raw=true/" class="img-rounded" width="200px" height="200px">
+				    <img src="https://github.com/AhnBy/shopping_project/blob/master/img/${productInfo.filename}?raw=true/" class="img-rounded" width="200px" height="200px">
 				</div>
 			</div>
 			<div class="form-group">

@@ -52,9 +52,7 @@
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">community <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="/member/myPage?userid=${result.userid}">Mypage</a></li>
-							<li><a href="#">Review</a></li>
-							<li><a href="/notice/list">Notice</a></li>
-							<li><a href="/chat">문의하기</a></li>
+							
 						</ul>
 					</li>
 					<li><a id="grade" style="color: white;"><span class="glyphicon glyphicon-grain"></span>${str}</a></li>
@@ -107,7 +105,7 @@
 					<c:choose><c:when test="${productList != null}">
 					<c:forEach items="${productList}" var="vo" varStatus="status">
 						<tr>
-							<td><img alt="thumbnail" src="https://github.com/AhnBy/shopping_project/blob/master/${vo.filename}?raw=true/" width="100px" height="100px"></td>
+							<td><img alt="thumbnail" src="https://github.com/AhnBy/shopping_project/blob/master/img/${vo.filename}?raw=true/" width="100px" height="100px"></td>
 							<td>${vo.productName}<br>${vo.productInfo}</td>
 							<td><fmt:formatNumber type="number" value="${vo.price}"/>&nbsp;원</td>
 							<c:forEach items="${cartlist}" var="co" varStatus="statis">

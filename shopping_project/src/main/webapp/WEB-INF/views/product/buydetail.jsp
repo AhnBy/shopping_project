@@ -98,9 +98,7 @@
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">community <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="/member/myPage?userid=${result.userid}">Mypage</a></li>
-							<li><a href="#">Review</a></li>
-							<li><a href="/notice/list">Notice</a></li>
-							<li><a href="/chat">문의하기</a></li>
+							
 						</ul>
 					</li>
 					<li><a id="grade" style="color: white;"><span class="glyphicon glyphicon-grain"></span>${str}</a></li>
@@ -139,7 +137,7 @@
 			<input type="hidden" value="${productInfo.productId}" id="productId" name="productId">
 		</div>
 		<div class="row" style="float: left; text-align: center; width:35%;">
-			<img alt="productPhoto" src="https://github.com/AhnBy/shopping_project/blob/master/${productInfo.filename}?raw=true/" width="150%">
+			<img alt="productPhoto" src="https://github.com/AhnBy/shopping_project/blob/master/img/${productInfo.filename}?raw=true/" width="150%">
 		</div>
 
 		<div class="row productInfo" style="width: 40%; float: right;" >
