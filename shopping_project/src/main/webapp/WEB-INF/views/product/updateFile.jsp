@@ -97,7 +97,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="filenameMF1">원본파일</label>
 				<div class="col-sm-6">
-				    <img src="${pageContext.request.contextPath}/resources/img/${productInfo.filename}" class="img-rounded" width="200px" height="200px">
+				    <img src="https://github.com/AhnBy/shopping_project/blob/master/${productInfo.filename}?raw=true/" class="img-rounded" width="200px" height="200px">
 				</div>
 			</div>
 			<div class="form-group">

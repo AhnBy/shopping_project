@@ -106,7 +106,7 @@
 					<c:forEach var="dto" begin="0" end="3" items="${productList}">
 						<div class="col-sm-3 image-box">
 							<a href="/product/buydetail?productId=${dto.productId}&userid=${result.userid}">
-							<p><img src="${pageContext.request.contextPath}/resources/img/${dto.filename}" class="image-thumbnail" width="236px" height="306px"></p></a>
+							<p><img src="https://github.com/AhnBy/shopping_project/blob/master/${dto.filename}?raw=true/" class="image-thumbnail" width="236px" height="306px"></p></a>
 							<p>${dto.productName }<br><b>${dto.price} 원</b></p>
 						</div>
 					</c:forEach>
@@ -116,7 +116,7 @@
 					<c:forEach var="dto" begin="4" end="7" items="${productList}">
 						<div class="col-sm-3 image-box">
 							<a href="/product/buydetail?productId=${dto.productId}&userid=${result.userid}">
-							<p><img src="${pageContext.request.contextPath}/resources/img/${dto.filename}" class="image-thumbnail" width="236px" height="306px"></p></a>
+							<p><img src="https://github.com/AhnBy/shopping_project/blob/master/${dto.filename}?raw=true/" class="image-thumbnail" width="236px" height="306px"></p></a>
 							<p>${dto.productName }<br><b>${dto.price} 원</b></p>
 						</div>
 					</c:forEach>

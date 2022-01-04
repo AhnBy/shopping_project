@@ -107,7 +107,7 @@
 					<c:choose><c:when test="${productList != null}">
 					<c:forEach items="${productList}" var="vo" varStatus="status">
 						<tr>
-							<td><img alt="thumbnail" src="${pageContext.request.contextPath}/resources/img/${vo.filename}" width="100px" height="100px"></td>
+							<td><img alt="thumbnail" src="https://github.com/AhnBy/shopping_project/blob/master/${vo.filename}?raw=true/" width="100px" height="100px"></td>
 							<td>${vo.productName}<br>${vo.productInfo}</td>
 							<td><fmt:formatNumber type="number" value="${vo.price}"/>&nbsp;원</td>
 							<c:forEach items="${cartlist}" var="co" varStatus="statis">

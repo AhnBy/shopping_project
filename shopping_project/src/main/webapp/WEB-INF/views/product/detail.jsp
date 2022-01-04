@@ -90,7 +90,7 @@
 		<div class="row">
 			<h1 class="col-sm-offset-1 col-sm-10">상품 상세페이지</h1>
 			<div class="col-sm-offset-1 col-sm-5">
-				<img class="fileImg" src="${pageContext.request.contextPath}/resources/img/${productInfo.filename}" width="370px" height="400px">
+				<img class="fileImg" src="https://github.com/AhnBy/shopping_project/blob/master/${productInfo.filename}?raw=true/" width="370px" height="400px">
 				
 			</div>
 			<div class="col-sm-offset-1 col-sm-4">

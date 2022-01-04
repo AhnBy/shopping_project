@@ -137,7 +137,7 @@
 						<c:forEach var="dto" begin="0" end="${fn:length(productList)}" items="${productList}">
 							<li>
 								<a href="/product/buydetail?productId=${dto.productId}&userid=${result.userid}" >
-								<p><img src="${pageContext.request.contextPath}/resources/img/${dto.filename}" id="image" class="image-thumbnail" ></p></a>
+								<p><img src="https://github.com/AhnBy/shopping_project/blob/master/${dto.filename}?raw=true/" id="image" class="image-thumbnail" ></p></a>
 								
 							</li>
 						</c:forEach>

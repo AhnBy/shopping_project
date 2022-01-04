@@ -167,7 +167,7 @@
 				</thead>
 				<tbody>
 						<tr>
-							<td><img src="${pageContext.request.contextPath}/resources/img/${dto.fullname}" width="100px" height="100px">
+							<td><img src="https://github.com/AhnBy/shopping_project/blob/master/${dto.fullname}?raw=true/" width="100px" height="100px">
 							<input type="hidden" value="${dto.fullname}" name="fullname">
 							<input type="hidden" value="${dto.orderId}" name="orderId">
 							<input type="hidden" value="${dto.productId}" name="productId" id="productId">

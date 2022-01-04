@@ -178,7 +178,7 @@
 									<c:forEach items="${orderList}" var="dto">
 										<tr>
 											<td style="text-align: center;">
-											<img alt="thumbnail" src="${pageContext.request.contextPath}/resources/img/${dto.fullname}" width="100px" height="100px"> 
+											<img alt="thumbnail" src="https://github.com/AhnBy/shopping_project/blob/master/${dto.fullname}?raw=true/" width="100px" height="100px"> 
 												<input type="hidden" value="${dto.productId}" name="productId" id="productId">
 											</td>
 											<td>${dto.productName}<br>${dto.productInfo}</td>

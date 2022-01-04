@@ -142,7 +142,7 @@
 			<input type="hidden" value="${productInfo.productId}" id="productId" name="productId">
 		</div>
 		<div class="row" style="float: left; text-align: center; width:35%;">
-			<img alt="productPhoto" src="${pageContext.request.contextPath}/resources/img/${productInfo.filename}" width="150%">
+			<img alt="productPhoto" src="https://github.com/AhnBy/shopping_project/blob/master/${productInfo.filename}?raw=true/" width="150%">
 		</div>
 
 		<div class="row productInfo" style="width: 40%; float: right;" >
