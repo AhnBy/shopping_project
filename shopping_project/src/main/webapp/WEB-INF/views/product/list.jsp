@@ -95,7 +95,7 @@
 			<c:when test="${empty productList}">
 				<div class="row">
 					<h2>상품 준비중 입니다.</h2> 
-					<p><img src="${pageContext.request.contextPath}/resources/img/default.jpg" class="img-thumbnail"  width="236" height="306"></p>
+					<p><img src="https://github.com/AhnBy/shopping_project/blob/master/img/default.jpg?raw=true/" class="img-thumbnail"  width="236" height="306"></p>
 				</div>
 			</c:when>
 			<c:otherwise>
